@@ -26,9 +26,13 @@ scaler = StandardScaler()
 scaled_X = scaler.fit_transform(X)
 final_value = scaler.transform([all_value])
 
-def model_run():
-  model = st.cache(RandomForestRegressor)()
+@st.cache_data
+def model_run(X,y):
+  model = RandomForestRegressor()
   model.fit(X,y)
+  return model
+  
+model = model_run(X.y)
 house_price = model.predict(final_value)[0][0]
 
 with st.spinner('Predicting House Price'):
@@ -38,6 +42,7 @@ st.success(msg)
 
 
 st.markdown('''**Designed and Developed by: Afifa Nusrat**''')  
+
 
 
 
