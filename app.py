@@ -32,7 +32,7 @@ def model_run(X,y):
   model.fit(X,y)
   return model
   
-model = model_run(X.y)
+model = model_run(X,y)
 house_price = model.predict(final_value)[0][0]
 
 with st.spinner('Predicting House Price'):
@@ -42,6 +42,7 @@ st.success(msg)
 
 
 st.markdown('''**Designed and Developed by: Afifa Nusrat**''')  
+
 
 
 
